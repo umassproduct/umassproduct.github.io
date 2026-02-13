@@ -40,8 +40,8 @@ export default function Navbar() {
         <ul className="navbar__links">
           <li><NavLink to="/about" className={linkClass}>Who We Are</NavLink></li>
           <li><NavLink to="/showcase" className={linkClass}>Product Showcase</NavLink></li>
-          <li><NavLink to="/students" className={linkClass}>For Students</NavLink></li>
-          <li><NavLink to="/founders" className={linkClass}>For Founders</NavLink></li>
+          <li><NavLink to="/students" className={linkClass}>Students</NavLink></li>
+          <li><NavLink to="/founders" className={linkClass}>Founders</NavLink></li>
         </ul>
 
         <button
@@ -69,10 +69,10 @@ export default function Navbar() {
             Product Showcase
           </NavLink>
           <NavLink to="/students" className="navbar__overlay-link" onClick={closeMenu}>
-            For Students
+            Students
           </NavLink>
           <NavLink to="/founders" className="navbar__overlay-link" onClick={closeMenu}>
-            For Founders
+            Founders
           </NavLink>
         </div>
       </nav>

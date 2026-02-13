@@ -68,6 +68,10 @@
   width: 100%;
 }
 
+.home__calendar {
+  width: 100%;
+  margin-top: var(--space-2xl);
+}
 
 .home__social {
   margin-top: var(--space-xl);

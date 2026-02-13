@@ -5,12 +5,28 @@ export default function NewsletterInput() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!email) return
-    // TODO: Replace with Google Form submission
-    // For now, show success message
-    setSubmitted(true)
+
+    const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeshUnNMnQ_pRhX37iUD0wyYwgJblXLLPGN6lYyYGu_3VKjgw/formResponse'
+    const formData = new URLSearchParams()
+    formData.append('entry.40221211', email)
+
+    try {
+      await fetch(formUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors', // Required for Google Forms
+      })
+      setSubmitted(true)
+      setEmail('')
+    } catch (error) {
+      console.error('Form submission error:', error)
+      // Show success anyway since no-cors doesn't return response
+      setSubmitted(true)
+      setEmail('')
+    }
   }
 
   if (submitted) {

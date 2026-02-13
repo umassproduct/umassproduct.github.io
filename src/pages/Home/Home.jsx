@@ -3,8 +3,10 @@ import RedBubble from '../../components/RedBubble/RedBubble'
 import Slideshow from '../../components/Slideshow/Slideshow'
 import NewsletterInput from '../../components/NewsletterInput/NewsletterInput'
 import SocialLinks from '../../components/SocialLinks/SocialLinks'
+import Calendar from '../../components/Calendar/Calendar'
 import ScrollFadeIn from '../../components/ScrollFadeIn/ScrollFadeIn'
 import slideshowImages from '../../data/slideshow'
+import calendarData from '../../data/calendar'
 import './Home.css'
 
 function TypewriterHeading({ text }) {
@@ -71,6 +73,17 @@ export default function Home() {
             <Slideshow images={slideshowImages} />
             <NewsletterInput />
           </RedBubble>
+        </ScrollFadeIn>
+      </section>
+
+      <section className="home__calendar" aria-label="Event Calendar">
+        <ScrollFadeIn>
+          <Calendar
+            semester={calendarData.semester}
+            year={calendarData.year}
+            events={calendarData.events}
+            meetingInfo={calendarData.meetingInfo}
+          />
         </ScrollFadeIn>
       </section>
 
