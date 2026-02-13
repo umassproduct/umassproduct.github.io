@@ -1,7 +1,6 @@
 import SectionHeadline from '../../components/SectionHeadline/SectionHeadline'
 import ShowcaseCard from '../../components/ShowcaseCard/ShowcaseCard'
 import ScrollFadeIn from '../../components/ScrollFadeIn/ScrollFadeIn'
-import SocialLinks from '../../components/SocialLinks/SocialLinks'
 import showcaseItems from '../../data/showcase'
 import './Showcase.css'
 
@@ -23,10 +22,6 @@ export default function Showcase() {
           </ScrollFadeIn>
         ))}
       </div>
-
-      <ScrollFadeIn>
-        <div style={{ marginTop: 'var(--space-xl)' }}><SocialLinks /></div>
-      </ScrollFadeIn>
     </div>
   )
 }

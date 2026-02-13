@@ -1,7 +1,6 @@
 import SectionHeadline from '../../components/SectionHeadline/SectionHeadline'
 import GlassCard from '../../components/GlassCard/GlassCard'
 import ScrollFadeIn from '../../components/ScrollFadeIn/ScrollFadeIn'
-import SocialLinks from '../../components/SocialLinks/SocialLinks'
 import studentSections from '../../data/forStudents'
 import './ForStudents.css'
 
@@ -29,10 +28,6 @@ export default function ForStudents() {
           </ScrollFadeIn>
         ))}
       </div>
-
-      <ScrollFadeIn>
-        <div style={{ marginTop: 'var(--space-xl)' }}><SocialLinks /></div>
-      </ScrollFadeIn>
     </div>
   )
 }

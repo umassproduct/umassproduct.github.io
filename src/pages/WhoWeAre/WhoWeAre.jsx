@@ -1,7 +1,6 @@
 import SectionHeadline from '../../components/SectionHeadline/SectionHeadline'
 import RedBubble from '../../components/RedBubble/RedBubble'
 import ScrollFadeIn from '../../components/ScrollFadeIn/ScrollFadeIn'
-import SocialLinks from '../../components/SocialLinks/SocialLinks'
 import './WhoWeAre.css'
 
 const sections = [
@@ -56,10 +55,6 @@ export default function WhoWeAre() {
           ))}
         </div>
       </div>
-
-      <ScrollFadeIn>
-        <div style={{ marginTop: 'var(--space-xl)' }}><SocialLinks /></div>
-      </ScrollFadeIn>
     </div>
   )
 }

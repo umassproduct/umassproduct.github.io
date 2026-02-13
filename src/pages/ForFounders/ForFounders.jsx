@@ -1,6 +1,5 @@
 import SectionHeadline from '../../components/SectionHeadline/SectionHeadline'
 import ScrollFadeIn from '../../components/ScrollFadeIn/ScrollFadeIn'
-import SocialLinks from '../../components/SocialLinks/SocialLinks'
 import founderSections from '../../data/forFounders'
 import './ForFounders.css'
 
@@ -28,10 +27,6 @@ export default function ForFounders() {
           </ScrollFadeIn>
         ))}
       </div>
-
-      <ScrollFadeIn>
-        <div style={{ marginTop: 'var(--space-xl)' }}><SocialLinks /></div>
-      </ScrollFadeIn>
     </div>
   )
 }
