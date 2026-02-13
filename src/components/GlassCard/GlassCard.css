@@ -1,0 +1,13 @@
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-md);
+  transition: transform var(--transition-default);
+}
+
+.glass-card:hover {
+  transform: scale(1.01);
+}

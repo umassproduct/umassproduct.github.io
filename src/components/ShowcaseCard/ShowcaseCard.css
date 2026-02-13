@@ -1,0 +1,45 @@
+.showcase-card {
+  overflow: hidden;
+  transition: transform var(--transition-default);
+}
+
+.showcase-card:hover {
+  transform: scale(1.02);
+}
+
+.showcase-card__image-wrap {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.showcase-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.showcase-card__placeholder {
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.showcase-card__body {
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+}
+
+.showcase-card__title {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-xs);
+}
+
+.showcase-card__desc {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}

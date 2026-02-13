@@ -1,0 +1,36 @@
+.for-students {
+  padding-top: calc(var(--navbar-height) + var(--space-lg));
+}
+
+.for-students__intro {
+  max-width: 700px;
+  margin: 0 auto var(--space-xl);
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.for-students__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-md);
+}
+
+.for-students__card-title {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-primary);
+}
+
+.for-students__card-body {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+  .for-students__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,16 @@
+.red-bubble {
+  background: var(--color-bg);
+  border-radius: var(--radius-bubble);
+  box-shadow: var(--shadow-red-strong);
+  overflow: hidden;
+}
+
+.red-bubble--subtle {
+  box-shadow: var(--shadow-red-subtle);
+}
+
+@media (max-width: 768px) {
+  .red-bubble {
+    border-radius: var(--radius-card);
+  }
+}
