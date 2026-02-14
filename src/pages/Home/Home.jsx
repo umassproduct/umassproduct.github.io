@@ -65,7 +65,12 @@ function TypewriterHeading({ text }) {
 export default function Home() {
   return (
     <div className="home">
-      <TypewriterHeading text="Your role in tech starts here." />
+      <div className="home__header">
+        <TypewriterHeading text="Your role in tech starts here." />
+        <p className="home__tagline">
+          An award-winning student organization building the next generation of tech unicorns at UMass Amherst.
+        </p>
+      </div>
 
       <section className="home__hero" aria-label="Hero">
         <ScrollFadeIn>

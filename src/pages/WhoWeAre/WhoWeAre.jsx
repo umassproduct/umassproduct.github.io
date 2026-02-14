@@ -3,25 +3,6 @@ import RedBubble from '../../components/RedBubble/RedBubble'
 import ScrollFadeIn from '../../components/ScrollFadeIn/ScrollFadeIn'
 import './WhoWeAre.css'
 
-const sections = [
-  {
-    title: 'Our Mission',
-    body: 'UMass Product exists to build the next generation of product thinkers. We bring together students passionate about product management, design, and engineering to build real things, think critically, and prepare for careers in tech.',
-  },
-  {
-    title: 'What We Do',
-    body: 'Through workshops, speaker events, design sprints, and demo days, we create an environment where product thinking meets execution. Our members work on live products, solve real problems, and present to industry professionals.',
-  },
-  {
-    title: 'Our Culture',
-    body: 'This isn\'t a typical student org. We operate with intention — every event, every project, every interaction is designed to push our members forward. We value craft, ambition, and the discipline to ship.',
-  },
-  {
-    title: 'Join Us',
-    body: 'Whether you\'re a first-year exploring tech or a senior sharpening your edge, there\'s a place for you here. Follow us on Instagram, join our Discord, and subscribe to our newsletter to stay in the loop.',
-  },
-]
-
 export default function WhoWeAre() {
   return (
     <div className="who-we-are page">
@@ -30,6 +11,50 @@ export default function WhoWeAre() {
       </ScrollFadeIn>
 
       <div className="who-we-are__layout">
+        <div className="who-we-are__content">
+          <ScrollFadeIn>
+            <p className="who-we-are__meetings">
+              <span className="who-we-are__meetings-label">Meetings:</span>{' '}
+              <span className="who-we-are__meetings-time">Wednesday's at 7pm in CICS Makerspace</span>{' '}
+              <span className="who-we-are__meetings-location">- A104 LGRC</span>
+            </p>
+          </ScrollFadeIn>
+
+          <ScrollFadeIn>
+            <p className="who-we-are__intro">
+              Hi there 👋 we are a student organization in the Manning College of Information and Computer Sciences exploring early careers in product management.
+            </p>
+          </ScrollFadeIn>
+
+          <ScrollFadeIn>
+            <blockquote className="who-we-are__quote">
+              "Think like a Tech CEO. Think like a MAANG engineer."
+            </blockquote>
+          </ScrollFadeIn>
+
+          <ScrollFadeIn>
+            <p className="who-we-are__tagline">
+              Aspiring to these goals? UMass Product is where you belong.
+            </p>
+          </ScrollFadeIn>
+
+          <ScrollFadeIn>
+            <p className="who-we-are__activities">
+              We meet weekly on Tuesday evenings to discuss{' '}
+              <span className="who-we-are__highlight who-we-are__highlight--red">trends in technology</span>,{' '}
+              <span className="who-we-are__highlight who-we-are__highlight--pink">conduct product thinking seminars</span>,{' '}
+              <span className="who-we-are__highlight who-we-are__highlight--gray">work on case studies</span>, and occasionally{' '}
+              <span className="who-we-are__highlight who-we-are__highlight--maroon">prep together for tech recruitment</span>.
+            </p>
+          </ScrollFadeIn>
+
+          <ScrollFadeIn>
+            <p className="who-we-are__welcome">
+              All UMass Amherst undergrad/graduate students and faculty interested in learning more about product management concepts are welcome!
+            </p>
+          </ScrollFadeIn>
+        </div>
+
         <ScrollFadeIn>
           <RedBubble className="who-we-are__video-bubble">
             <video
@@ -43,17 +68,6 @@ export default function WhoWeAre() {
             />
           </RedBubble>
         </ScrollFadeIn>
-
-        <div className="who-we-are__sections">
-          {sections.map((section, i) => (
-            <ScrollFadeIn key={i}>
-              <div className="who-we-are__section">
-                <h3 className="who-we-are__section-title">{section.title}</h3>
-                <p className="who-we-are__section-body">{section.body}</p>
-              </div>
-            </ScrollFadeIn>
-          ))}
-        </div>
       </div>
     </div>
   )

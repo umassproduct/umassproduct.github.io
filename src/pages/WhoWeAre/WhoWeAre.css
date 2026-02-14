@@ -1,13 +1,21 @@
 .who-we-are {
   padding-top: calc(var(--navbar-height) + var(--space-lg));
+  padding-bottom: var(--space-xl);
 }
 
-/* ===== Layout: Video left, sections right ===== */
+/* ===== Layout: Text left, video right ===== */
 .who-we-are__layout {
   display: grid;
-  grid-template-columns: 340px 1fr;
+  grid-template-columns: 1fr 340px;
   gap: var(--space-lg);
   align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.who-we-are__content {
+  padding-right: var(--space-md);
 }
 
 .who-we-are__video-bubble {
@@ -24,43 +32,146 @@
   border-radius: var(--radius-bubble);
 }
 
-/* ===== Sections (red border-left style) ===== */
-.who-we-are__sections {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
+/* Meetings */
+.who-we-are__meetings {
+  font-size: clamp(0.9375rem, 2vw, 1rem);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-sm);
+  line-height: 1.5;
 }
 
-.who-we-are__section {
-  border-left: 2px solid var(--color-accent);
-  padding-left: var(--space-md);
+.who-we-are__meetings-label {
+  color: #FF6B6B;
+  font-weight: 400;
 }
 
-.who-we-are__section-title {
-  font-size: 1.5rem;
+.who-we-are__meetings-time {
+  color: var(--color-text-primary);
+}
+
+.who-we-are__meetings-location {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+/* Intro */
+.who-we-are__intro {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+/* Quote */
+.who-we-are__quote {
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+  margin: var(--space-md) 0;
+  padding: var(--space-md) var(--space-lg);
+  border-left: 4px solid var(--color-accent);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-card);
+  position: relative;
+}
+
+.who-we-are__quote::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--gradient-red);
+  border-radius: 4px 0 0 4px;
+}
+
+/* Tagline */
+.who-we-are__tagline {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+/* Activities */
+.who-we-are__activities {
+  font-size: clamp(0.9375rem, 2vw, 1.125rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text-primary);
   margin-bottom: var(--space-sm);
 }
 
-.who-we-are__section-body {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--color-text-secondary);
+.who-we-are__highlight {
+  font-weight: 400;
+  font-style: italic;
 }
 
-/* ===== Mobile: stack vertically ===== */
+.who-we-are__highlight--red {
+  color: #FF6B6B;
+}
+
+.who-we-are__highlight--pink {
+  color: #FF9999;
+}
+
+.who-we-are__highlight--gray {
+  color: #C9C8C8;
+}
+
+.who-we-are__highlight--maroon {
+  color: #CC4444;
+}
+
+/* Welcome */
+.who-we-are__welcome {
+  font-size: clamp(0.9375rem, 2vw, 1rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-md);
+}
+
+/* Responsive */
 @media (max-width: 900px) {
   .who-we-are__layout {
     grid-template-columns: 1fr;
     gap: var(--space-md);
   }
 
+  .who-we-are__content {
+    padding-right: 0;
+  }
+
   .who-we-are__video-bubble {
     max-width: 300px;
+    margin: 0 auto;
     border-radius: var(--radius-card);
     position: static;
   }
 
   .who-we-are__video {
     border-radius: var(--radius-card);
+  }
+}
+
+@media (max-width: 768px) {
+  .who-we-are {
+    padding-top: calc(var(--navbar-height) + var(--space-md));
+  }
+
+  .who-we-are__layout {
+    padding: 0 var(--space-sm);
+  }
+
+  .who-we-are__quote {
+    padding: var(--space-sm) var(--space-md);
+    margin: var(--space-sm) 0;
   }
 }
