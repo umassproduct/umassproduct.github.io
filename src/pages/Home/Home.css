@@ -7,6 +7,27 @@
   padding-bottom: var(--space-xl);
 }
 
+/* ===== Alert Banner ===== */
+.home__alert {
+  width: fit-content;
+  max-width: 90%;
+  margin: 0 auto var(--space-md);
+  padding: 10px 24px;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.15), rgba(94, 0, 0, 0.15));
+  border: 1px solid rgba(136, 28, 28, 0.5);
+  border-radius: 999px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(136, 28, 28, 0.3);
+}
+
+.home__alert-text {
+  font-family: var(--font-primary);
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #ff6b6b;
+}
+
 /* ===== Header ===== */
 .home__header {
   text-align: center;

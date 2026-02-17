@@ -65,6 +65,12 @@ function TypewriterHeading({ text }) {
 export default function Home() {
   return (
     <div className="home">
+      <div className="home__alert">
+        <span className="home__alert-text">
+          🚨 MEETINGS HAVE MOVED TO ILC S311 UNTIL FURTHER NOTICE
+        </span>
+      </div>
+
       <div className="home__header">
         <TypewriterHeading text="Your role in tech starts here." />
         <p className="home__tagline">
