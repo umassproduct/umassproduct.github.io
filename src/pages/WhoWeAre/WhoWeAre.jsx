@@ -15,8 +15,7 @@ export default function WhoWeAre() {
           <ScrollFadeIn>
             <p className="who-we-are__meetings">
               <span className="who-we-are__meetings-label">Meetings:</span>{' '}
-              <span className="who-we-are__meetings-time">Wednesday's at 7pm in CICS Makerspace</span>{' '}
-              <span className="who-we-are__meetings-location">- A104 LGRC</span>
+              <span className="who-we-are__meetings-time">Every Wednesday 7-8 PM in Integrative Learning Center (ILC) S311</span>
             </p>
           </ScrollFadeIn>
 
@@ -40,7 +39,7 @@ export default function WhoWeAre() {
 
           <ScrollFadeIn>
             <p className="who-we-are__activities">
-              We meet weekly on Tuesday evenings to discuss{' '}
+              We meet weekly on Wednesday evenings to discuss{' '}
               <span className="who-we-are__highlight who-we-are__highlight--red">trends in technology</span>,{' '}
               <span className="who-we-are__highlight who-we-are__highlight--pink">conduct product thinking seminars</span>,{' '}
               <span className="who-we-are__highlight who-we-are__highlight--gray">work on case studies</span>, and occasionally{' '}
