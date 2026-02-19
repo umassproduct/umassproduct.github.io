@@ -1,36 +1,262 @@
 .for-founders {
   padding-top: calc(var(--navbar-height) + var(--space-lg));
+  padding-bottom: var(--space-2xl);
 }
 
 .for-founders__intro {
-  max-width: 700px;
-  margin: 0 auto var(--space-xl);
+  max-width: 680px;
+  margin: 0 auto var(--space-md);
   text-align: center;
   color: var(--color-text-secondary);
   font-size: 1.1rem;
   line-height: 1.7;
 }
 
-.for-founders__sections {
+/* ===== Examples ===== */
+.for-founders__examples {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto var(--space-2xl);
+}
+
+.for-founders__examples-label {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+  opacity: 0.6;
+}
+
+.for-founders__examples-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.for-founders__example-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  padding: var(--space-lg);
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
-  max-width: 800px;
-  margin: 0 auto;
+  gap: var(--space-sm);
+  transition: border-color 0.2s;
 }
 
-.for-founders__section {
-  border-left: 2px solid var(--color-accent);
-  padding-left: var(--space-md);
+.for-founders__example-card:hover {
+  border-color: rgba(136, 28, 28, 0.4);
 }
 
-.for-founders__section-title {
-  font-size: 1.5rem;
-  margin-bottom: var(--space-sm);
+.for-founders__example-icon {
+  font-size: 1.8rem;
 }
 
-.for-founders__section-body {
-  font-size: 1rem;
-  line-height: 1.7;
+.for-founders__example-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+.for-founders__example-body {
+  font-size: 0.95rem;
+  line-height: 1.65;
   color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+  .for-founders__examples-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Sponsors Marquee ===== */
+.for-founders__sponsors {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto var(--space-2xl);
+}
+
+.for-founders__sponsors-label {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+  opacity: 0.6;
+}
+
+.for-founders__marquee-wrapper {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.for-founders__marquee {
+  display: flex;
+  gap: 60px;
+  width: max-content;
+  animation: marquee-scroll 18s linear infinite;
+}
+
+.for-founders__marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.for-founders__sponsor-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 28px;
+  flex-shrink: 0;
+}
+
+.for-founders__sponsor-logo img {
+  height: 140px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.75;
+  transition: opacity 0.3s;
+}
+
+.for-founders__sponsor-logo:hover img {
+  opacity: 1;
+}
+
+/* ===== Form Container ===== */
+.for-founders__form-container {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: var(--space-xl);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(136, 28, 28, 0.25);
+  border-radius: 24px;
+  box-shadow: 0 0 40px rgba(136, 28, 28, 0.12);
+}
+
+.for-founders__form-heading {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+  text-align: center;
+}
+
+.for-founders__form-subheading {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-lg);
+}
+
+/* ===== Fields ===== */
+.for-founders__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.for-founders__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.for-founders__label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.for-founders__input,
+.for-founders__textarea {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  resize: none;
+}
+
+.for-founders__input::placeholder,
+.for-founders__textarea::placeholder {
+  color: rgba(201, 200, 200, 0.35);
+}
+
+.for-founders__input:focus,
+.for-founders__textarea:focus {
+  border-color: rgba(136, 28, 28, 0.6);
+  box-shadow: 0 0 0 3px rgba(136, 28, 28, 0.15);
+}
+
+/* ===== Submit ===== */
+.for-founders__submit {
+  margin-top: var(--space-sm);
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #FF0000, #5E0000);
+  border: none;
+  border-radius: 999px;
+  color: #fff;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+  align-self: flex-end;
+}
+
+.for-founders__submit:hover:not(:disabled) {
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+
+.for-founders__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===== States ===== */
+.for-founders__success {
+  text-align: center;
+  padding: var(--space-xl) 0;
+  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+}
+
+.for-founders__error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .for-founders__form-container {
+    margin: 0 var(--space-sm);
+    padding: var(--space-lg);
+  }
+
+  .for-founders__submit {
+    align-self: stretch;
+    text-align: center;
+  }
 }
