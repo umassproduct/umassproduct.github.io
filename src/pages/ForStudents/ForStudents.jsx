@@ -67,35 +67,11 @@ export default function ForStudents() {
         <TypewriterHeading text="Join us in 4 steps." />
       </div>
 
-      {/* Step 1: Attend a meeting */}
+      {/* Step 1: Join newsletter */}
       <section className="for-students__step">
         <ScrollFadeIn>
           <div className="for-students__step-header">
             <span className="for-students__step-number">1</span>
-            <h3 className="for-students__step-title">
-              Attend a meeting. Here's our next one:
-            </h3>
-          </div>
-        </ScrollFadeIn>
-
-        <ScrollFadeIn>
-          <div className="for-students__poster-container">
-            <RedBubble className="for-students__poster-bubble">
-              <img
-                src="/images/pictures_of_us/Debug your dating life.-3.png"
-                alt="Debug your dating life event poster"
-                className="for-students__poster"
-              />
-            </RedBubble>
-          </div>
-        </ScrollFadeIn>
-      </section>
-
-      {/* Step 2: Join newsletter */}
-      <section className="for-students__step">
-        <ScrollFadeIn>
-          <div className="for-students__step-header">
-            <span className="for-students__step-number">2</span>
             <h3 className="for-students__step-title">
               Join our newsletter:
             </h3>
@@ -111,11 +87,11 @@ export default function ForStudents() {
         </ScrollFadeIn>
       </section>
 
-      {/* Step 3: Connect on social media */}
+      {/* Step 2: Connect on social media */}
       <section className="for-students__step">
         <ScrollFadeIn>
           <div className="for-students__step-header">
-            <span className="for-students__step-number">3</span>
+            <span className="for-students__step-number">2</span>
             <h3 className="for-students__step-title">
               Follow our socials.
             </h3>
@@ -129,11 +105,11 @@ export default function ForStudents() {
         </ScrollFadeIn>
       </section>
 
-      {/* Step 4: Add calendar */}
+      {/* Step 3: Add calendar */}
       <section className="for-students__step">
         <ScrollFadeIn>
           <div className="for-students__step-header">
-            <span className="for-students__step-number">4</span>
+            <span className="for-students__step-number">3</span>
             <h3 className="for-students__step-title">
               Add our calendar to yours:
             </h3>
@@ -148,6 +124,30 @@ export default function ForStudents() {
               events={calendarData.events}
               meetingInfo={calendarData.meetingInfo}
             />
+          </div>
+        </ScrollFadeIn>
+      </section>
+
+      {/* Step 4: Attend a meeting */}
+      <section className="for-students__step">
+        <ScrollFadeIn>
+          <div className="for-students__step-header">
+            <span className="for-students__step-number">4</span>
+            <h3 className="for-students__step-title">
+              Attend a meeting. Here's our next one:
+            </h3>
+          </div>
+        </ScrollFadeIn>
+
+        <ScrollFadeIn>
+          <div className="for-students__poster-container">
+            <RedBubble className="for-students__poster-bubble">
+              <img
+                src="/images/pictures_of_us/Debug your dating life.-3.png"
+                alt="Debug your dating life event poster"
+                className="for-students__poster"
+              />
+            </RedBubble>
           </div>
         </ScrollFadeIn>
       </section>
