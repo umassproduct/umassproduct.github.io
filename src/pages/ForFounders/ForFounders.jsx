@@ -6,12 +6,17 @@ import './ForFounders.css'
 const FORMSPREE_ID = 'xkovvwpo'
 
 const sponsors = [
-  { name: 'Notion', logo: '/images/sponsors/notion-logo-media-kit.png' },
+  {
+    name: 'Notion',
+    logo: '/images/sponsors/notion-logo-media-kit.png',
+    story: 'In 2026, Notion sent our president Naina — who was part of their student ambassador program — very exciting swag! Notion has been one of our favorite products we\'ve been rooting for since day one. We distributed the swag at our Spring \'26 Notion Breakdown meeting, where we learned from Notion\'s startup journey.',
+  },
   { name: 'UMass', logo: '/images/sponsors/UMass_Seal_Medium_PMS_202.png' },
 ]
 
 export default function ForFounders() {
   const [status, setStatus] = useState('idle') // idle | sending | success | error
+  const [activeSponsor, setActiveSponsor] = useState(null)
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -84,7 +89,11 @@ export default function ForFounders() {
           <div className="for-founders__marquee-wrapper">
             <div className="for-founders__marquee">
               {[...sponsors, ...sponsors].map((s, i) => (
-                <div className="for-founders__sponsor-logo" key={i}>
+                <div
+                  className={`for-founders__sponsor-logo${s.story ? ' for-founders__sponsor-logo--clickable' : ''}`}
+                  key={i}
+                  onClick={() => s.story && setActiveSponsor(s)}
+                >
                   <img src={s.logo} alt={s.name} />
                 </div>
               ))}
@@ -169,6 +178,21 @@ export default function ForFounders() {
           )}
         </div>
       </ScrollFadeIn>
+      {activeSponsor && (
+        <div className="for-founders__modal-overlay" onClick={() => setActiveSponsor(null)}>
+          <div className="for-founders__modal" onClick={e => e.stopPropagation()}>
+            <img
+              className="for-founders__modal-logo"
+              src={activeSponsor.logo}
+              alt={activeSponsor.name}
+            />
+            <p className="for-founders__modal-story">{activeSponsor.story}</p>
+            <button className="for-founders__modal-close" onClick={() => setActiveSponsor(null)}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
