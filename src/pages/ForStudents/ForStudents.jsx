@@ -143,8 +143,8 @@ export default function ForStudents() {
           <div className="for-students__poster-container">
             <RedBubble className="for-students__poster-bubble">
               <img
-                src="/images/pictures_of_us/Debug your dating life.-3.png"
-                alt="Debug your dating life event poster"
+                src="/images/pictures_of_us/meeting flyers/2:25:2026.png"
+                alt="Next meeting flyer - February 25, 2026"
                 className="for-students__poster"
               />
             </RedBubble>
