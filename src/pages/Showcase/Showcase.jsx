@@ -147,10 +147,9 @@ export default function Showcase() {
   }
 
   function copyLink() {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    })
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+    navigator.clipboard?.writeText(window.location.href).catch(() => {})
   }
 
   const semester = semesters.find(s => s.id === selectedId)
