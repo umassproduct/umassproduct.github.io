@@ -23,6 +23,10 @@ export default function Portal() {
     return (
       <div className="portal page portal--unlocked">
         <p className="portal__welcome">Welcome, member.</p>
+        <div className="portal__teaser">
+          <span className="portal__teaser-dot" />
+          <p className="portal__teaser-text">Alumni contact info · recruiter connections · exclusive roles — coming soon.</p>
+        </div>
         <div className="portal__resources">
           <a className="portal__resource-card" href="https://discord.gg/umassproduct" target="_blank" rel="noopener noreferrer">
             <span className="portal__resource-icon">💬</span>
