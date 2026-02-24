@@ -14,9 +14,10 @@ export default function Footer() {
             <SocialLinks />
           </div>
         )}
-        <p className="footer__copy">
-          &copy; {new Date().getFullYear()} UMass Product. All rights reserved.
-        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center' }}>
+          <p className="footer__copy">Established 2019. 8 years of excellence.</p>
+          <p className="footer__copy">Manning College of Information and Computer Sciences at the University of Massachusetts Amherst.</p>
+        </div>
       </div>
     </footer>
   )
