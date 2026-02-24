@@ -28,7 +28,17 @@ const semesters = [
           {
             youtubeId: 'DF0-JWpurGU',
             title: 'Tinder: Government Verify',
-            presenters: [],
+            presenters: [
+              { name: 'Bella' },
+            ],
+          },
+          {
+            youtubeId: 'U_lOwOFpfBA',
+            title: 'Tinder: Lock and Love',
+            presenters: [
+              { name: 'Devansh Mamoria' },
+              { name: 'Maridhula' },
+            ],
           },
         ],
       },

@@ -169,6 +169,47 @@
 }
 
 /* ===== Pitch Cards — horizontal scroll, max 3 visible ===== */
+.showcase__pitches-wrap {
+  position: relative;
+}
+
+.showcase__scroll-btn {
+  position: absolute;
+  top: calc(50% - 20px);
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(10, 10, 10, 0.85);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, border-color 0.2s;
+  backdrop-filter: blur(6px);
+}
+
+.showcase__scroll-btn--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.showcase__scroll-btn--left {
+  left: -12px;
+}
+
+.showcase__scroll-btn--right {
+  right: -12px;
+}
+
+.showcase__scroll-btn:hover {
+  border-color: rgba(136, 28, 28, 0.5);
+}
+
 .showcase__pitches-scroll {
   display: grid;
   grid-auto-flow: column;

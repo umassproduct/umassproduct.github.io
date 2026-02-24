@@ -1,10 +1,117 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import SectionHeadline from '../../components/SectionHeadline/SectionHeadline'
 import RedBubble from '../../components/RedBubble/RedBubble'
 import ScrollFadeIn from '../../components/ScrollFadeIn/ScrollFadeIn'
 import semesters from '../../data/semesters'
 import './Showcase.css'
+
+function PitchRow({ meeting, mi, selectedId, openPitch }) {
+  const scrollRef = useRef(null)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(false)
+  const [hovered, setHovered] = useState(false)
+
+  function updateScrollState() {
+    const el = scrollRef.current
+    if (!el) return
+    setCanScrollLeft(el.scrollLeft > 2)
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 2)
+  }
+
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
+    updateScrollState()
+    el.addEventListener('scroll', updateScrollState)
+    window.addEventListener('resize', updateScrollState)
+    return () => {
+      el.removeEventListener('scroll', updateScrollState)
+      window.removeEventListener('resize', updateScrollState)
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  function scroll(dir) {
+    const el = scrollRef.current
+    if (!el) return
+    el.scrollBy({ left: dir * (el.clientWidth / 3 + 16), behavior: 'smooth' })
+  }
+
+  return (
+    <div
+      className="showcase__meeting"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div className="showcase__meeting-header">
+        <span className="showcase__meeting-date">{meeting.date}</span>
+        <span className="showcase__meeting-sep">·</span>
+        <span className="showcase__meeting-title">{meeting.title}</span>
+      </div>
+      <div className="showcase__pitches-wrap">
+        <button
+          className={`showcase__scroll-btn showcase__scroll-btn--left${hovered && canScrollLeft ? ' showcase__scroll-btn--visible' : ''}`}
+          onClick={() => scroll(-1)}
+          aria-label="Scroll left"
+          tabIndex={hovered && canScrollLeft ? 0 : -1}
+        >
+          <svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7l6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </button>
+        <div className="showcase__pitches-scroll" ref={scrollRef}>
+          {meeting.pitches.map((pitch, pi) => (
+            <button
+              key={pi}
+              className="showcase__pitch-card"
+              onClick={() => openPitch(pitch, selectedId, mi, pi)}
+              aria-label={`View pitch: ${pitch.title}`}
+            >
+              <div className="showcase__pitch-video-wrap">
+                <img
+                  src={`https://img.youtube.com/vi/${pitch.youtubeId}/maxresdefault.jpg`}
+                  alt={pitch.title}
+                  className="showcase__pitch-video"
+                />
+              </div>
+              <div className="showcase__pitch-meta">
+                <p className="showcase__pitch-title">{pitch.title}</p>
+                {pitch.presenters?.length > 0 && (
+                  <p className="showcase__pitch-presenters">
+                    {pitch.presenters.map((p, i) => (
+                      <span key={i}>
+                        {i > 0 && ', '}
+                        {p.linkedin ? (
+                          <a
+                            href={p.linkedin}
+                            className="showcase__pitch-presenter-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={e => e.stopPropagation()}
+                          >
+                            {p.name}
+                          </a>
+                        ) : (
+                          <span className="showcase__pitch-presenter">{p.name}</span>
+                        )}
+                      </span>
+                    ))}
+                  </p>
+                )}
+              </div>
+            </button>
+          ))}
+        </div>
+        <button
+          className={`showcase__scroll-btn showcase__scroll-btn--right${hovered && canScrollRight ? ' showcase__scroll-btn--visible' : ''}`}
+          onClick={() => scroll(1)}
+          aria-label="Scroll right"
+          tabIndex={hovered && canScrollRight ? 0 : -1}
+        >
+          <svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  )
+}
 
 export default function Showcase() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -108,57 +215,7 @@ export default function Showcase() {
         </div>
 
         {semester?.meetings.map((meeting, mi) => (
-          <div className="showcase__meeting" key={mi}>
-            <div className="showcase__meeting-header">
-              <span className="showcase__meeting-date">{meeting.date}</span>
-              <span className="showcase__meeting-sep">·</span>
-              <span className="showcase__meeting-title">{meeting.title}</span>
-            </div>
-
-            <div className="showcase__pitches-scroll">
-              {meeting.pitches.map((pitch, pi) => (
-                <button
-                  key={pi}
-                  className="showcase__pitch-card"
-                  onClick={() => openPitch(pitch, selectedId, mi, pi)}
-                  aria-label={`View pitch: ${pitch.title}`}
-                >
-                  <div className="showcase__pitch-video-wrap">
-                    <img
-                      src={`https://img.youtube.com/vi/${pitch.youtubeId}/maxresdefault.jpg`}
-                      alt={pitch.title}
-                      className="showcase__pitch-video"
-                    />
-                  </div>
-                  <div className="showcase__pitch-meta">
-                    <p className="showcase__pitch-title">{pitch.title}</p>
-                    {pitch.presenters?.length > 0 && (
-                      <p className="showcase__pitch-presenters">
-                        {pitch.presenters.map((p, i) => (
-                          <span key={i}>
-                            {i > 0 && ', '}
-                            {p.linkedin ? (
-                              <a
-                                href={p.linkedin}
-                                className="showcase__pitch-presenter-link"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={e => e.stopPropagation()}
-                              >
-                                {p.name}
-                              </a>
-                            ) : (
-                              <span className="showcase__pitch-presenter">{p.name}</span>
-                            )}
-                          </span>
-                        ))}
-                      </p>
-                    )}
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
+          <PitchRow key={mi} meeting={meeting} mi={mi} selectedId={selectedId} openPitch={openPitch} />
         ))}
       </section>
 
