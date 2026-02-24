@@ -306,11 +306,21 @@
   background: rgba(136, 28, 28, 0.3);
 }
 
-.showcase__modal-video {
+.showcase__modal-video-wrap {
+  position: relative;
   width: 100%;
+  aspect-ratio: 16 / 9;
   border-radius: 12px;
-  max-height: 65vh;
+  overflow: hidden;
   background: #000;
+}
+
+.showcase__modal-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .showcase__modal-footer {

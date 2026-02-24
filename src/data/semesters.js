@@ -8,12 +8,17 @@ const semesters = [
         title: 'Dating App Redesign',
         pitches: [
           {
-            src: '/images/showcase/spring_26/02:18:2026_Dating_App_Redesign/bumble_bitters:_date_and_gamble.MOV',
+            youtubeId: '9AWlNIz7N8Q',
             title: 'Bumble Bitters: Date and Gamble',
-            presenters: [],
+            presenters: [
+              { name: 'Ayman' },
+              { name: 'Bhargava' },
+              { name: 'Shashwat' },
+              { name: 'Justin' },
+            ],
           },
           {
-            src: '/images/showcase/spring_26/02:18:2026_Dating_App_Redesign/Tinder:_Monthly_Match.MOV',
+            youtubeId: 'M0sUxwdqI4c',
             title: 'Tinder: Monthly Match',
             presenters: [
               { name: 'Mori FJ', linkedin: 'https://www.linkedin.com/in/mori-fj/' },
@@ -21,7 +26,7 @@ const semesters = [
             ],
           },
           {
-            src: '/images/showcase/spring_26/02:18:2026_Dating_App_Redesign/Tinder:_Government_Verify.MOV',
+            youtubeId: 'DF0-JWpurGU',
             title: 'Tinder: Government Verify',
             presenters: [],
           },

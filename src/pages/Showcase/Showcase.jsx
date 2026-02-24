@@ -124,14 +124,10 @@ export default function Showcase() {
                   aria-label={`View pitch: ${pitch.title}`}
                 >
                   <div className="showcase__pitch-video-wrap">
-                    <video
-                      src={pitch.src}
-                      muted
-                      autoPlay
-                      loop
-                      playsInline
+                    <img
+                      src={`https://img.youtube.com/vi/${pitch.youtubeId}/maxresdefault.jpg`}
+                      alt={pitch.title}
                       className="showcase__pitch-video"
-                      tabIndex={-1}
                     />
                   </div>
                   <div className="showcase__pitch-meta">
@@ -183,13 +179,15 @@ export default function Showcase() {
             >
               ✕
             </button>
-            <video
-              className="showcase__modal-video"
-              src={activePitch.src}
-              controls
-              autoPlay
-              playsInline
-            />
+            <div className="showcase__modal-video-wrap">
+              <iframe
+                className="showcase__modal-video"
+                src={`https://www.youtube.com/embed/${activePitch.youtubeId}?autoplay=1&rel=0`}
+                title={activePitch.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
             <div className="showcase__modal-footer">
               <div className="showcase__modal-title-wrap">
                 <p className="showcase__modal-title">{activePitch.title}</p>
