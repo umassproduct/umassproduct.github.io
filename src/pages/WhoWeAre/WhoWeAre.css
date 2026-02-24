@@ -145,6 +145,15 @@
   padding: 0 var(--space-md);
 }
 
+.who-we-are__eboard-semester {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #FF4444;
+  margin-bottom: 4px;
+}
+
 .who-we-are__eboard-heading {
   font-size: clamp(1.5rem, 4vw, 2.25rem);
   font-weight: 300;
@@ -155,7 +164,7 @@
 
 .who-we-are__eboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, 160px);
   gap: var(--space-lg);
 }
 
@@ -163,6 +172,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  width: 160px;
   padding: var(--space-sm) var(--space-md);
   border: 1px solid rgba(136, 28, 28, 0.25);
   border-radius: var(--radius-card);

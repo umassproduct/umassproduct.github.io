@@ -17,7 +17,7 @@ export default function Footer() {
               : <SocialLinks />
             }
           </div>
-          <p className="footer__established">Established 2019. 8 years of excellence.</p>
+          <p className="footer__established">Established 2019.</p>
           <a href="mailto:pmclub@cs.umass.edu" className="footer__email">pmclub@cs.umass.edu</a>
           <p className="footer__copy">Manning College of Information and Computer Sciences at the University of Massachusetts Amherst.</p>
         </div>

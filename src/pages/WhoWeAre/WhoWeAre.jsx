@@ -72,6 +72,7 @@ export default function WhoWeAre() {
 
       <section className="who-we-are__eboard">
         <ScrollFadeIn>
+          <p className="who-we-are__eboard-semester">Spring 2026</p>
           <h2 className="who-we-are__eboard-heading">Executive Board</h2>
         </ScrollFadeIn>
         <div className="who-we-are__eboard-grid">
