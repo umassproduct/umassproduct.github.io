@@ -87,6 +87,31 @@ export default function Home() {
         </ScrollFadeIn>
       </section>
 
+      {/* Alumni marquee */}
+      <section className="home__alumni" aria-label="Alumni companies">
+        <ScrollFadeIn>
+          <p className="home__alumni-label">Our alumni are at</p>
+          <div className="home__alumni-track-wrap">
+            <div className="home__alumni-track">
+              {[0, 1].map(set => (
+                <div key={set} className="home__alumni-set" aria-hidden={set > 0 ? true : undefined}>
+                  <img src="/images/alumni_logos/amazon_logo.png" alt="Amazon" className="home__alumni-logo" />
+                  <img src="/images/alumni_logos/microsoft_logo.png" alt="Microsoft" className="home__alumni-logo home__alumni-logo--large" />
+                  <img src="/images/alumni_logos/andruil_logo.png" alt="Anduril" className="home__alumni-logo" />
+                  <img src="/images/alumni_logos/uber_logo.webp" alt="Uber" className="home__alumni-logo home__alumni-logo--large" />
+                  <img src="/images/alumni_logos/Oracle-Logo.png" alt="Oracle" className="home__alumni-logo home__alumni-logo--large" />
+                  <img src="/images/alumni_logos/Atlassian-Logo.png" alt="Atlassian" className="home__alumni-logo home__alumni-logo--large" />
+                  <img src="/images/alumni_logos/Liberty_Mutual-Logo.wine.png" alt="Liberty Mutual" className="home__alumni-logo home__alumni-logo--large" />
+                  <img src="/images/alumni_logos/anchr_logo.svg" alt="Anchr" className="home__alumni-logo" />
+                  <img src="/images/alumni_logos/fidelity-logo-PNG.png.webp" alt="Fidelity" className="home__alumni-logo" />
+                  <img src="/images/alumni_logos/optum_logo.png" alt="Optum" className="home__alumni-logo" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </ScrollFadeIn>
+      </section>
+
       <section className="home__calendar" aria-label="Event Calendar">
         <ScrollFadeIn>
           <Calendar

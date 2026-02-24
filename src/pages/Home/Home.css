@@ -105,6 +105,62 @@
   width: 100%;
 }
 
+/* ===== Alumni Marquee ===== */
+.home__alumni {
+  width: 100%;
+  margin-top: var(--space-2xl);
+}
+
+.home__alumni-label {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  opacity: 0.6;
+  margin-bottom: var(--space-md);
+}
+
+.home__alumni-track-wrap {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.home__alumni-track {
+  display: flex;
+  animation: alumni-scroll 18s linear infinite;
+}
+
+.home__alumni-set {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding-right: 36px;
+  flex-shrink: 0;
+}
+
+.home__alumni-logo {
+  width: 160px;
+  height: 56px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.home__alumni-logo--large {
+  width: 240px;
+  height: 88px;
+  margin: 0 -10px;
+}
+
+@keyframes alumni-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 .home__calendar {
   width: 100%;
   margin-top: var(--space-2xl);
