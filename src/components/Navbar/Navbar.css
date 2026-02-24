@@ -49,6 +49,20 @@
   opacity: 1;
 }
 
+.navbar__link--portal {
+  color: #FF4444;
+  opacity: 0.8;
+}
+
+.navbar__link--portal:hover,
+.navbar__link--portal.navbar__link--active {
+  opacity: 1;
+}
+
+.navbar__overlay-link--portal {
+  color: #FF4444;
+}
+
 .navbar__hamburger {
   display: none;
   flex-direction: column;

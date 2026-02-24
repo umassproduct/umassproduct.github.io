@@ -149,6 +149,52 @@
   margin-top: var(--space-xl);
 }
 
+/* ===== Alumni logos ===== */
+.who-we-are__alumni {
+  max-width: 1200px;
+  margin: var(--space-2xl) auto 0;
+  padding: 0 var(--space-md);
+}
+
+.who-we-are__alumni-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  opacity: 0.6;
+  margin-bottom: var(--space-md);
+}
+
+.who-we-are__alumni-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.who-we-are__alumni-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+}
+
+.who-we-are__alumni-logo {
+  max-width: 120px;
+  max-height: 44px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+
+.who-we-are__alumni-logo:hover {
+  opacity: 0.75;
+}
+
 .who-we-are__eboard-header {
   position: relative;
   z-index: 10;

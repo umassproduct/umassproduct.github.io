@@ -52,7 +52,7 @@ const eboards = {
     { name: 'Ananya Srivastava', role: 'Secretary',          linkedin: 'https://www.linkedin.com/in/ananyasrivas/' },
     { name: 'Meghana Jaladanki', role: 'Social Media Chair', linkedin: 'https://www.linkedin.com/in/meghana-jaladanki/' },
     { name: 'Arham Choraria',    role: 'Outreach Chair',     linkedin: 'https://www.linkedin.com/in/arhamchoraria/' },
-    { name: 'Aditya Surbit',     role: 'Outreach Chair' },
+    { name: 'Aditya Surbhit',    role: 'Outreach Chair',     linkedin: 'https://www.linkedin.com/in/aditya-surbhit/' },
     { name: 'Kyle Halevi',       role: 'Events Chair',       linkedin: 'https://www.linkedin.com/in/kylehalevi/' },
   ],
 }

@@ -7,6 +7,7 @@ import Showcase from './pages/Showcase/Showcase'
 import ForStudents from './pages/ForStudents/ForStudents'
 import ForFounders from './pages/ForFounders/ForFounders'
 import WhoWeAre from './pages/WhoWeAre/WhoWeAre'
+import Portal from './pages/Portal/Portal'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -31,6 +32,7 @@ function App() {
           <Route path="/students" element={<ForStudents />} />
           <Route path="/founders" element={<ForFounders />} />
           <Route path="/about" element={<WhoWeAre />} />
+          <Route path="/portal" element={<Portal />} />
         </Routes>
       </main>
       <Footer />

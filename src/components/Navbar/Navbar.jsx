@@ -42,6 +42,7 @@ export default function Navbar() {
           <li><NavLink to="/showcase" className={linkClass}>Product Showcase</NavLink></li>
           <li><NavLink to="/students" className={linkClass}>Students</NavLink></li>
           <li><NavLink to="/founders" className={linkClass}>Sponsorship</NavLink></li>
+          <li><NavLink to="/portal" className={({ isActive }) => `navbar__link navbar__link--portal${isActive ? ' navbar__link--active' : ''}`}>Portal</NavLink></li>
         </ul>
 
         <button
@@ -73,6 +74,9 @@ export default function Navbar() {
           </NavLink>
           <NavLink to="/founders" className="navbar__overlay-link" onClick={closeMenu}>
             Sponsorship
+          </NavLink>
+          <NavLink to="/portal" className="navbar__overlay-link navbar__overlay-link--portal" onClick={closeMenu}>
+            Portal
           </NavLink>
         </div>
       </nav>

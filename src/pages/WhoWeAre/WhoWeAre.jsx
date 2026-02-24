@@ -147,6 +147,34 @@ export default function WhoWeAre() {
         </div>
       </section>
 
+      <section className="who-we-are__alumni">
+        <ScrollFadeIn>
+          <p className="who-we-are__alumni-label">Alumni in the industry</p>
+          <div className="who-we-are__alumni-grid">
+            {[
+              { src: '/images/alumni_logos/amazon_logo.png',               alt: 'Amazon' },
+              { src: '/images/alumni_logos/microsoft_logo.png',            alt: 'Microsoft' },
+              { src: '/images/alumni_logos/uber_logo.webp',                alt: 'Uber' },
+              { src: '/images/alumni_logos/salesforce_logo.svg.png',       alt: 'Salesforce' },
+              { src: '/images/alumni_logos/Oracle-Logo.png',               alt: 'Oracle' },
+              { src: '/images/alumni_logos/optum_logo.png',                alt: 'Optum' },
+              { src: '/images/alumni_logos/fidelity-logo-PNG.png.webp',    alt: 'Fidelity' },
+              { src: '/images/alumni_logos/Verizon-Logo-2000.png',         alt: 'Verizon' },
+              { src: '/images/alumni_logos/Atlassian-Logo.png',            alt: 'Atlassian' },
+              { src: '/images/alumni_logos/Liberty_Mutual-Logo.wine.png',  alt: 'Liberty Mutual' },
+              { src: '/images/alumni_logos/andruil_logo.png',              alt: 'Anduril' },
+              { src: '/images/alumni_logos/anchr_logo.svg',                alt: 'Anchr' },
+              { src: '/images/alumni_logos/capital_one_logo.svg.png',     alt: 'Capital One' },
+              { src: '/images/alumni_logos/Roku_logo.png',                alt: 'Roku' },
+            ].map(({ src, alt }) => (
+              <div key={alt} className="who-we-are__alumni-logo-wrap">
+                <img src={src} alt={alt} className="who-we-are__alumni-logo" />
+              </div>
+            ))}
+          </div>
+        </ScrollFadeIn>
+      </section>
+
     </div>
   )
 }
