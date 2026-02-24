@@ -1,12 +1,31 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Portal.css'
 
 const PASSWORD = 'Praxis'
+const WELCOME_TEXT = 'Welcome, member.'
 
 export default function Portal() {
   const [input, setInput] = useState('')
   const [unlocked, setUnlocked] = useState(false)
   const [error, setError] = useState(false)
+  const [typed, setTyped] = useState('')
+  const [typing, setTyping] = useState(false)
+
+  useEffect(() => {
+    if (!unlocked) return
+    setTyped('')
+    setTyping(true)
+    let i = 0
+    const interval = setInterval(() => {
+      i++
+      setTyped(WELCOME_TEXT.slice(0, i))
+      if (i >= WELCOME_TEXT.length) {
+        clearInterval(interval)
+        setTyping(false)
+      }
+    }, 60)
+    return () => clearInterval(interval)
+  }, [unlocked])
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -22,7 +41,10 @@ export default function Portal() {
   if (unlocked) {
     return (
       <div className="portal page portal--unlocked">
-        <p className="portal__welcome">Welcome, member.</p>
+        <p className="portal__welcome">
+          {typed}
+          {typing && <span className="portal__cursor" />}
+        </p>
         <div className="portal__teaser">
           <span className="portal__teaser-dot" />
           <p className="portal__teaser-text">Alumni contact info · recruiter connections · exclusive roles — coming soon.</p>

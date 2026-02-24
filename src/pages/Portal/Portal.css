@@ -138,13 +138,14 @@
   border-radius: 50%;
   background: #FF4444;
   flex-shrink: 0;
-  box-shadow: 0 0 8px rgba(255, 68, 68, 0.8);
-  animation: portal-pulse 2s ease-in-out infinite;
+  animation: portal-flash 1.4s step-end infinite;
 }
 
-@keyframes portal-pulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(255, 68, 68, 0.8); }
-  50%       { opacity: 0.5; box-shadow: 0 0 4px rgba(255, 68, 68, 0.4); }
+@keyframes portal-flash {
+  0%   { opacity: 1;   box-shadow: 0 0 6px 2px rgba(255, 68, 68, 0.9), 0 0 14px 4px rgba(255, 68, 68, 0.4); }
+  50%  { opacity: 0.1; box-shadow: none; }
+  60%  { opacity: 1;   box-shadow: 0 0 6px 2px rgba(255, 68, 68, 0.9), 0 0 14px 4px rgba(255, 68, 68, 0.4); }
+  100% { opacity: 1;   box-shadow: 0 0 6px 2px rgba(255, 68, 68, 0.9), 0 0 14px 4px rgba(255, 68, 68, 0.4); }
 }
 
 .portal__teaser-text {
@@ -161,6 +162,22 @@
   color: var(--color-text-secondary);
   margin-top: var(--space-sm);
   margin-bottom: var(--space-xl);
+  min-height: 1.5em;
+}
+
+.portal__cursor {
+  display: inline-block;
+  width: 1px;
+  height: 0.9em;
+  background: var(--color-text-secondary);
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: portal-blink 0.7s step-end infinite;
+}
+
+@keyframes portal-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
 
 .portal__resources {
