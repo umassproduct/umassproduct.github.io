@@ -4,18 +4,21 @@ import './Footer.css'
 
 export default function Footer() {
   const location = useLocation()
-  const showSocials = location.pathname !== '/'
+  const isHome = location.pathname === '/'
 
   return (
     <footer className="footer">
       <div className="footer__inner">
-        {showSocials && (
-          <div style={{ marginBottom: 'var(--space-lg)' }}>
-            <SocialLinks />
+        <div className="footer__grid">
+          <img src="/images/logo.png" alt="UMass Product" className="footer__logo" />
+          <div className="footer__socials">
+            {isHome
+              ? <p className="footer__meeting">Every Wednesday, from 7–8</p>
+              : <SocialLinks />
+            }
           </div>
-        )}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center' }}>
-          <p className="footer__copy">Established 2019. 8 years of excellence.</p>
+          <p className="footer__established">Established 2019. 8 years of excellence.</p>
+          <a href="mailto:pmclub@cs.umass.edu" className="footer__email">pmclub@cs.umass.edu</a>
           <p className="footer__copy">Manning College of Information and Computer Sciences at the University of Massachusetts Amherst.</p>
         </div>
       </div>
