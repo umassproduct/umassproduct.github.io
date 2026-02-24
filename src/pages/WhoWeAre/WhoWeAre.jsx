@@ -1,10 +1,29 @@
+import { useState } from 'react'
 import SectionHeadline from '../../components/SectionHeadline/SectionHeadline'
 import RedBubble from '../../components/RedBubble/RedBubble'
 import ScrollFadeIn from '../../components/ScrollFadeIn/ScrollFadeIn'
-import eboard from '../../data/eboard'
+import eboards from '../../data/eboard'
 import './WhoWeAre.css'
 
+const semesters = Object.keys(eboards)
+
 export default function WhoWeAre() {
+  const [selected, setSelected] = useState(semesters[0])
+  const [displayed, setDisplayed] = useState(semesters[0])
+  const [fading, setFading] = useState(false)
+  const [open, setOpen] = useState(false)
+
+  function handleSelect(s) {
+    if (s === selected) { setOpen(false); return }
+    setOpen(false)
+    setFading(true)
+    setTimeout(() => {
+      setDisplayed(s)
+      setSelected(s)
+      setFading(false)
+    }, 200)
+  }
+
   return (
     <div className="who-we-are page">
       <ScrollFadeIn>
@@ -71,12 +90,34 @@ export default function WhoWeAre() {
       </div>
 
       <section className="who-we-are__eboard">
-        <ScrollFadeIn>
-          <p className="who-we-are__eboard-semester">Spring 2026</p>
+        <ScrollFadeIn className="who-we-are__eboard-header">
+          <div className="who-we-are__eboard-semester-wrap">
+            <button
+              className="who-we-are__eboard-semester"
+              onClick={() => setOpen(o => !o)}
+              aria-expanded={open}
+            >
+              {selected}
+              <span className={`who-we-are__eboard-chevron${open ? ' who-we-are__eboard-chevron--open' : ''}`}>›</span>
+            </button>
+            {open && (
+              <div className="who-we-are__eboard-dropdown">
+                {semesters.map(s => (
+                  <button
+                    key={s}
+                    className={`who-we-are__eboard-dropdown-item${s === selected ? ' who-we-are__eboard-dropdown-item--active' : ''}`}
+                    onClick={() => handleSelect(s)}
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           <h2 className="who-we-are__eboard-heading">Executive Board</h2>
         </ScrollFadeIn>
-        <div className="who-we-are__eboard-grid">
-          {eboard.map((member, i) => {
+        <div className={`who-we-are__eboard-grid${fading ? ' who-we-are__eboard-grid--fading' : ''}`}>
+          {eboards[displayed].map((member, i) => {
             const inner = (
               <>
                 <p className="who-we-are__eboard-name">{member.name}</p>
@@ -105,6 +146,7 @@ export default function WhoWeAre() {
           })}
         </div>
       </section>
+
     </div>
   )
 }

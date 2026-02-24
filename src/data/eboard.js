@@ -1,14 +1,60 @@
-const eboard = [
-  { name: 'Alisha Srivastava',          role: 'President',                linkedin: 'https://www.linkedin.com/in/alishasrivastava/' },
-  { name: 'Naina Singh',                role: 'President',                linkedin: 'https://www.linkedin.com/in/nainaaz/' },
-  { name: 'Mehul Patwari',              role: 'Vice President',           linkedin: 'https://www.linkedin.com/in/mehulpatwari/' },
-  { name: 'Duretti Hordofaa',           role: 'Outreach Chair',           linkedin: 'https://www.linkedin.com/in/duretti-hordofaa/' },
-  { name: 'Sammie Le',                  role: 'Design Chair',             linkedin: 'https://www.linkedin.com/in/sammiele/' },
-  { name: 'Tanishq Saria',              role: 'Junior Representative',   linkedin: 'https://www.linkedin.com/in/tanishq-s/' },
-  { name: 'Supriyaa Hejib',            role: 'Sophomore Representative', linkedin: 'https://www.linkedin.com/in/supriyaa-hejib/' },
-  { name: 'Mori Finlayson-Johnecheck', role: 'Freshman Representative',  linkedin: 'https://www.linkedin.com/in/mori-fj/' },
-  { name: 'Devansh Mamoria',            role: 'Freshman Representative' },
-  { name: 'Rudraksh Chaudhary',         role: 'President Emeritus',       linkedin: 'https://www.linkedin.com/in/rudrakshchaudhry/' },
-]
+const eboards = {
+  'Spring 2026': [
+    { name: 'Alisha Srivastava',          role: 'President',                linkedin: 'https://www.linkedin.com/in/alishasrivastava/' },
+    { name: 'Naina Singh',                role: 'President',                linkedin: 'https://www.linkedin.com/in/nainaaz/' },
+    { name: 'Mehul Patwari',              role: 'Vice President',           linkedin: 'https://www.linkedin.com/in/mehulpatwari/' },
+    { name: 'Duretti Hordofaa',           role: 'Outreach Chair',           linkedin: 'https://www.linkedin.com/in/duretti-hordofaa/' },
+    { name: 'Sammie Le',                  role: 'Design Chair',             linkedin: 'https://www.linkedin.com/in/sammiele/' },
+    { name: 'Tanishq Saria',              role: 'Junior Representative',    linkedin: 'https://www.linkedin.com/in/tanishq-s/' },
+    { name: 'Supriyaa Hejib',            role: 'Sophomore Representative', linkedin: 'https://www.linkedin.com/in/supriyaa-hejib/' },
+    { name: 'Mori Finlayson-Johnecheck', role: 'Freshman Representative',  linkedin: 'https://www.linkedin.com/in/mori-fj/' },
+    { name: 'Devansh Mamoria',            role: 'Freshman Representative' },
+    { name: 'Rudraksh Chaudhary',         role: 'President Emeritus',       linkedin: 'https://www.linkedin.com/in/rudrakshchaudhry/' },
+  ],
+  'Fall 2025': [
+    { name: 'Rudraksh Chaudhary', role: 'President',          linkedin: 'https://www.linkedin.com/in/rudrakshchaudhry/' },
+    { name: 'Tawsif Ibne Azaad',  role: 'President',          linkedin: 'https://www.linkedin.com/in/tawsifibneazad/' },
+    { name: 'Naina Singh',        role: 'Vice President',     linkedin: 'https://www.linkedin.com/in/nainaaz/' },
+    { name: 'Duretti Hordofaa',   role: 'Outreach Chair',     linkedin: 'https://www.linkedin.com/in/duretti-hordofaa/' },
+    { name: 'Sammie Le',          role: 'Design Chair',       linkedin: 'https://www.linkedin.com/in/sammiele/' },
+    { name: 'Alisha Srivastava',  role: 'President Emeritus', linkedin: 'https://www.linkedin.com/in/alishasrivastava/' },
+  ],
+  'Spring 2025': [
+    { name: 'Alisha Srivastava',  role: 'President',        linkedin: 'https://www.linkedin.com/in/alishasrivastava/' },
+    { name: 'Melisa Dundar',      role: 'President',        linkedin: 'https://www.linkedin.com/in/melisadundar/' },
+    { name: 'Rudraksh Chaudhary', role: 'Vice President',   linkedin: 'https://www.linkedin.com/in/rudrakshchaudhry/' },
+    { name: 'Naina Singh',        role: 'Outreach Chair',   linkedin: 'https://www.linkedin.com/in/nainaaz/' },
+    { name: 'Sammie Le',          role: 'Media Chair',      linkedin: 'https://www.linkedin.com/in/sammiele/' },
+    { name: 'Mehul Patwari',      role: 'Events Chair',     linkedin: 'https://www.linkedin.com/in/mehulpatwari/' },
+    { name: 'Ansh Doshi',         role: 'Newsletter Chair', linkedin: 'https://www.linkedin.com/in/anshddoshi27/' },
+  ],
+  'Fall 2024': [
+    { name: 'Zeina Zahoori',      role: 'President',                linkedin: 'https://www.linkedin.com/in/zeinazahoori/' },
+    { name: 'Melisa Dundar',      role: 'President',                linkedin: 'https://www.linkedin.com/in/melisadundar/' },
+    { name: 'Aryan Nair',         role: 'Vice President',           linkedin: 'https://www.linkedin.com/in/nairaryan21/' },
+    { name: 'Alisha Srivastava',  role: 'Head of Media & Outreach', linkedin: 'https://www.linkedin.com/in/alishasrivastava/' },
+    { name: 'Rudraksh Chaudhary', role: 'Newsletter Chair',         linkedin: 'https://www.linkedin.com/in/rudrakshchaudhry/' },
+    { name: 'Naina Singh',        role: 'Media Chair',              linkedin: 'https://www.linkedin.com/in/nainaaz/' },
+    { name: 'Tawsif Ibne Azaad',  role: 'Events Manager',          linkedin: 'https://www.linkedin.com/in/tawsifibneazad/' },
+  ],
+  'Spring 2024': [
+    { name: 'Kyle Halevi',        role: 'President',        linkedin: 'https://www.linkedin.com/in/kylehalevi/' },
+    { name: 'Zeina Zahoori',      role: 'President',        linkedin: 'https://www.linkedin.com/in/zeinazahoori/' },
+    { name: 'Brijesh Vyas',       role: 'Vice President',   linkedin: 'https://www.linkedin.com/in/brijeshvyas/' },
+    { name: 'Arham Choraria',     role: 'Outreach Chair',   linkedin: 'https://www.linkedin.com/in/arhamchoraria/' },
+    { name: 'Alisha Srivastava',  role: 'Media Chair',      linkedin: 'https://www.linkedin.com/in/alishasrivastava/' },
+    { name: 'Rudraksh Chaudhary', role: 'Newsletter Chair', linkedin: 'https://www.linkedin.com/in/rudrakshchaudhry/' },
+  ],
+  'Founding Team': [
+    { name: 'Dhruv Keyal',       role: 'President',          linkedin: 'https://www.linkedin.com/in/dhruv-keyal/' },
+    { name: 'Disha Srivastava',  role: 'President',          linkedin: 'https://www.linkedin.com/in/dishsrivastava/' },
+    { name: 'Maanas Peri',       role: 'Vice President',     linkedin: 'https://www.linkedin.com/in/maanas-peri/' },
+    { name: 'Ananya Srivastava', role: 'Secretary',          linkedin: 'https://www.linkedin.com/in/ananyasrivas/' },
+    { name: 'Meghana Jaladanki', role: 'Social Media Chair', linkedin: 'https://www.linkedin.com/in/meghana-jaladanki/' },
+    { name: 'Arham Choraria',    role: 'Outreach Chair',     linkedin: 'https://www.linkedin.com/in/arhamchoraria/' },
+    { name: 'Aditya Surbit',     role: 'Outreach Chair' },
+    { name: 'Kyle Halevi',       role: 'Events Chair',       linkedin: 'https://www.linkedin.com/in/kylehalevi/' },
+  ],
+}
 
-export default eboard
+export default eboards

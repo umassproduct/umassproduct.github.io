@@ -145,13 +145,80 @@
   padding: 0 var(--space-md);
 }
 
+.who-we-are__founding {
+  margin-top: var(--space-xl);
+}
+
+.who-we-are__eboard-header {
+  position: relative;
+  z-index: 10;
+}
+
+.who-we-are__eboard-semester-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
 .who-we-are__eboard-semester {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #FF4444;
-  margin-bottom: 4px;
+}
+
+.who-we-are__eboard-chevron {
+  display: inline-block;
+  font-style: normal;
+  transform: rotate(90deg);
+  transition: transform 0.2s;
+  line-height: 1;
+}
+
+.who-we-are__eboard-chevron--open {
+  transform: rotate(270deg);
+}
+
+.who-we-are__eboard-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: #111;
+  border: 1px solid rgba(136, 28, 28, 0.4);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  z-index: 10;
+  min-width: 140px;
+}
+
+.who-we-are__eboard-dropdown-item {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 8px 14px;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.who-we-are__eboard-dropdown-item:hover,
+.who-we-are__eboard-dropdown-item--active {
+  background: rgba(136, 28, 28, 0.15);
+  color: #FF4444;
 }
 
 .who-we-are__eboard-heading {
@@ -166,6 +233,14 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, 160px);
   gap: var(--space-lg);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.who-we-are__eboard-grid--fading {
+  opacity: 0;
+  transform: translateY(10px);
 }
 
 .who-we-are__eboard-card {
