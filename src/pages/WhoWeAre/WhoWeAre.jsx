@@ -1,6 +1,7 @@
 import SectionHeadline from '../../components/SectionHeadline/SectionHeadline'
 import RedBubble from '../../components/RedBubble/RedBubble'
 import ScrollFadeIn from '../../components/ScrollFadeIn/ScrollFadeIn'
+import eboard from '../../data/eboard'
 import './WhoWeAre.css'
 
 export default function WhoWeAre() {
@@ -68,6 +69,41 @@ export default function WhoWeAre() {
           </RedBubble>
         </ScrollFadeIn>
       </div>
+
+      <section className="who-we-are__eboard">
+        <ScrollFadeIn>
+          <h2 className="who-we-are__eboard-heading">Executive Board</h2>
+        </ScrollFadeIn>
+        <div className="who-we-are__eboard-grid">
+          {eboard.map((member, i) => {
+            const inner = (
+              <>
+                <p className="who-we-are__eboard-name">{member.name}</p>
+                <p className="who-we-are__eboard-role">{member.role}</p>
+              </>
+            )
+            return (
+              <ScrollFadeIn key={i}>
+                {member.linkedin ? (
+                  <a
+                    href={member.linkedin}
+                    className="who-we-are__eboard-card"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${member.name} on LinkedIn`}
+                  >
+                    {inner}
+                  </a>
+                ) : (
+                  <div className="who-we-are__eboard-card who-we-are__eboard-card--no-link">
+                    {inner}
+                  </div>
+                )}
+              </ScrollFadeIn>
+            )
+          })}
+        </div>
+      </section>
     </div>
   )
 }

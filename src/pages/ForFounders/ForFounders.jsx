@@ -6,11 +6,11 @@ import './ForFounders.css'
 const FORMSPREE_ID = 'xkovvwpo'
 
 const sponsors = [
-  {
-    name: 'Notion',
-    logo: '/images/sponsors/notion-logo-media-kit.png',
-    story: 'In 2026, Notion sent our president Naina — who was part of their student ambassador program — very exciting swag! Notion has been one of our favorite products we\'ve been rooting for since day one. We distributed the swag at our Spring \'26 Notion Breakdown meeting, where we learned from Notion\'s startup journey.',
-  },
+  // {
+  //   name: 'Notion',
+  //   logo: '/images/sponsors/notion-logo-media-kit.png',
+  //   story: 'In 2026, Notion sent our president Naina — who was part of their student ambassador program — very exciting swag! Notion has been one of our favorite products we\'ve been rooting for since day one. We distributed the swag at our Spring \'26 Notion Breakdown meeting, where we learned from Notion\'s startup journey.',
+  // },
   { name: 'UMass', logo: '/images/sponsors/UMass_Seal_Medium_PMS_202.png' },
 ]
 

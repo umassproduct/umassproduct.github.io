@@ -62,6 +62,71 @@ function TypewriterHeading({ text }) {
   )
 }
 
+function LogoSet() {
+  return (
+    <>
+      <img src="/images/alumni_logos/amazon_logo.png" alt="Amazon" className="home__alumni-logo" />
+      <img src="/images/alumni_logos/microsoft_logo.png" alt="Microsoft" className="home__alumni-logo home__alumni-logo--large" />
+      <img src="/images/alumni_logos/andruil_logo.png" alt="Anduril" className="home__alumni-logo" />
+      <img src="/images/alumni_logos/uber_logo.webp" alt="Uber" className="home__alumni-logo home__alumni-logo--large" />
+      <img src="/images/alumni_logos/Oracle-Logo.png" alt="Oracle" className="home__alumni-logo home__alumni-logo--large" />
+      <img src="/images/alumni_logos/Atlassian-Logo.png" alt="Atlassian" className="home__alumni-logo home__alumni-logo--large" />
+      <img src="/images/alumni_logos/Liberty_Mutual-Logo.wine.png" alt="Liberty Mutual" className="home__alumni-logo home__alumni-logo--large" />
+      <img src="/images/alumni_logos/anchr_logo.svg" alt="Anchr" className="home__alumni-logo" />
+      <img src="/images/alumni_logos/fidelity-logo-PNG.png.webp" alt="Fidelity" className="home__alumni-logo" />
+      <img src="/images/alumni_logos/optum_logo.png" alt="Optum" className="home__alumni-logo" />
+    </>
+  )
+}
+
+const ANIM_DURATION = 18 // seconds, must match CSS
+
+function AlumniScroll() {
+  const trackRef = useRef(null)
+  const startTimeRef = useRef(Date.now())
+  const [hovered, setHovered] = useState(false)
+
+  function skip(dir) {
+    const track = trackRef.current
+    if (!track) return
+    const elapsed = (Date.now() - startTimeRef.current) / 1000
+    let newElapsed = ((elapsed + dir * 2) % ANIM_DURATION + ANIM_DURATION) % ANIM_DURATION
+    startTimeRef.current = Date.now() - newElapsed * 1000
+    track.style.animationDelay = `-${newElapsed}s`
+  }
+
+  return (
+    <div
+      className="home__alumni-wrap"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <button
+        className={`home__alumni-btn home__alumni-btn--left${hovered ? ' home__alumni-btn--visible' : ''}`}
+        onClick={() => skip(-1)}
+        aria-label="Scroll left"
+        tabIndex={hovered ? 0 : -1}
+      >
+        <svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7l6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      </button>
+      <div className="home__alumni-track-wrap">
+        <div className="home__alumni-track" ref={trackRef}>
+          <div className="home__alumni-set"><LogoSet /></div>
+          <div className="home__alumni-set" aria-hidden="true"><LogoSet /></div>
+        </div>
+      </div>
+      <button
+        className={`home__alumni-btn home__alumni-btn--right${hovered ? ' home__alumni-btn--visible' : ''}`}
+        onClick={() => skip(1)}
+        aria-label="Scroll right"
+        tabIndex={hovered ? 0 : -1}
+      >
+        <svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      </button>
+    </div>
+  )
+}
+
 export default function Home() {
   return (
     <div className="home">
@@ -87,28 +152,11 @@ export default function Home() {
         </ScrollFadeIn>
       </section>
 
-      {/* Alumni marquee */}
+      {/* Alumni scroll */}
       <section className="home__alumni" aria-label="Alumni companies">
         <ScrollFadeIn>
           <p className="home__alumni-label">Our alumni are at</p>
-          <div className="home__alumni-track-wrap">
-            <div className="home__alumni-track">
-              {[0, 1].map(set => (
-                <div key={set} className="home__alumni-set" aria-hidden={set > 0 ? true : undefined}>
-                  <img src="/images/alumni_logos/amazon_logo.png" alt="Amazon" className="home__alumni-logo" />
-                  <img src="/images/alumni_logos/microsoft_logo.png" alt="Microsoft" className="home__alumni-logo home__alumni-logo--large" />
-                  <img src="/images/alumni_logos/andruil_logo.png" alt="Anduril" className="home__alumni-logo" />
-                  <img src="/images/alumni_logos/uber_logo.webp" alt="Uber" className="home__alumni-logo home__alumni-logo--large" />
-                  <img src="/images/alumni_logos/Oracle-Logo.png" alt="Oracle" className="home__alumni-logo home__alumni-logo--large" />
-                  <img src="/images/alumni_logos/Atlassian-Logo.png" alt="Atlassian" className="home__alumni-logo home__alumni-logo--large" />
-                  <img src="/images/alumni_logos/Liberty_Mutual-Logo.wine.png" alt="Liberty Mutual" className="home__alumni-logo home__alumni-logo--large" />
-                  <img src="/images/alumni_logos/anchr_logo.svg" alt="Anchr" className="home__alumni-logo" />
-                  <img src="/images/alumni_logos/fidelity-logo-PNG.png.webp" alt="Fidelity" className="home__alumni-logo" />
-                  <img src="/images/alumni_logos/optum_logo.png" alt="Optum" className="home__alumni-logo" />
-                </div>
-              ))}
-            </div>
-          </div>
+          <AlumniScroll />
         </ScrollFadeIn>
       </section>
 

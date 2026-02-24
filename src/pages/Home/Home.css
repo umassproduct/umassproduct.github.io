@@ -122,10 +122,14 @@
   margin-bottom: var(--space-md);
 }
 
+.home__alumni-wrap {
+  position: relative;
+}
+
 .home__alumni-track-wrap {
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 .home__alumni-track {
@@ -137,8 +141,13 @@
   display: flex;
   align-items: center;
   gap: 36px;
-  padding-right: 36px;
+  padding: 0 36px;
   flex-shrink: 0;
+}
+
+@keyframes alumni-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 .home__alumni-logo {
@@ -156,10 +165,33 @@
   margin: 0 -10px;
 }
 
-@keyframes alumni-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+.home__alumni-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 2;
 }
+
+.home__alumni-btn--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.home__alumni-btn--left  { left: -12px; }
+.home__alumni-btn--right { right: -12px; }
 
 .home__calendar {
   width: 100%;

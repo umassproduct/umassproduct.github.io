@@ -138,6 +138,57 @@
   margin-top: var(--space-md);
 }
 
+/* ===== Eboard ===== */
+.who-we-are__eboard {
+  max-width: 1200px;
+  margin: var(--space-2xl) auto 0;
+  padding: 0 var(--space-md);
+}
+
+.who-we-are__eboard-heading {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.who-we-are__eboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--space-lg);
+}
+
+.who-we-are__eboard-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid rgba(136, 28, 28, 0.25);
+  border-radius: var(--radius-card);
+  background: rgba(255, 255, 255, 0.02);
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.who-we-are__eboard-card:not(.who-we-are__eboard-card--no-link):hover {
+  background: rgba(136, 28, 28, 0.08);
+  border-color: rgba(136, 28, 28, 0.5);
+  transform: translateY(-2px);
+}
+
+.who-we-are__eboard-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.who-we-are__eboard-role {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .who-we-are__layout {
