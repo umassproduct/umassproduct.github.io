@@ -61,16 +61,22 @@ function PitchRow({ meeting, mi, selectedId, openPitch }) {
           {meeting.pitches.map((pitch, pi) => (
             <button
               key={pi}
-              className="showcase__pitch-card"
-              onClick={() => openPitch(pitch, selectedId, mi, pi)}
+              className={`showcase__pitch-card${!pitch.youtubeId ? ' showcase__pitch-card--no-video' : ''}`}
+              onClick={() => pitch.youtubeId && openPitch(pitch, selectedId, mi, pi)}
               aria-label={`View pitch: ${pitch.title}`}
             >
               <div className="showcase__pitch-video-wrap">
-                <img
-                  src={`https://img.youtube.com/vi/${pitch.youtubeId}/maxresdefault.jpg`}
-                  alt={pitch.title}
-                  className="showcase__pitch-video"
-                />
+                {pitch.youtubeId ? (
+                  <img
+                    src={`https://img.youtube.com/vi/${pitch.youtubeId}/maxresdefault.jpg`}
+                    alt={pitch.title}
+                    className="showcase__pitch-video"
+                  />
+                ) : (
+                  <div className="showcase__pitch-video showcase__pitch-video--placeholder">
+                    <span>Recording coming soon</span>
+                  </div>
+                )}
               </div>
               <div className="showcase__pitch-meta">
                 <p className="showcase__pitch-title">{pitch.title}</p>

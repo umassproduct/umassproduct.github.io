@@ -10,7 +10,6 @@ export default function Portal() {
   const [error, setError] = useState(false)
   const [typed, setTyped] = useState('')
   const [typing, setTyping] = useState(false)
-
   useEffect(() => {
     if (!unlocked) return
     setTyped('')

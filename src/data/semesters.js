@@ -4,6 +4,57 @@ const semesters = [
     label: 'Spring 2026',
     meetings: [
       {
+        date: 'February 25th',
+        title: 'YCombinator Inspired Startup Pitch Day',
+        pitches: [
+          {
+            youtubeId: null,
+            title: 'StudySync',
+            presenters: [
+              { name: 'Veer Heman Kuruwa', linkedin: 'https://www.linkedin.com/in/veerkuruwa20/' },
+              { name: 'Bhargava Vetsa', linkedin: 'https://www.linkedin.com/in/bhargava-vetsa-a9566626b/' },
+              { name: 'Omer Saeed', linkedin: 'https://www.linkedin.com/in/omersaeed00/' },
+            ],
+          },
+          {
+            youtubeId: null,
+            title: 'ScoolPool',
+            presenters: [
+              { name: 'Shrija Keshari', linkedin: 'https://www.linkedin.com/in/shrijakeshari-1115n99/' },
+              { name: 'Suhaas Kiran DG', linkedin: 'https://www.linkedin.com/in/d-g-suhaas-kiran-a304a1148/' },
+              { name: 'Devansh Mamoria' },
+            ],
+          },
+          {
+            youtubeId: null,
+            title: 'Room Sync',
+            presenters: [
+              { name: 'Mugilan Arulvanan', linkedin: 'https://www.linkedin.com/in/mugilan606/' },
+              { name: 'Kalidas Parakkal Menon', linkedin: 'https://www.linkedin.com/in/kalidas-menon-418a82286/' },
+              { name: 'Kaushik Parthasarathy', linkedin: 'https://www.linkedin.com/in/kaushikparthasarathy/' },
+            ],
+          },
+          {
+            youtubeId: null,
+            title: 'get.out()',
+            presenters: [
+              { name: 'Jimmy Savaryn', linkedin: 'https://www.linkedin.com/in/james-savaryn-7905ba356/' },
+              { name: 'Rushath Rajeev', linkedin: 'https://www.linkedin.com/in/rushath-rajeev-456b6a18b/' },
+              { name: 'Paritosh Gandhi', linkedin: 'https://www.linkedin.com/in/paritosh-gandhi-6b3675335/' },
+            ],
+          },
+          {
+            youtubeId: null,
+            title: 'Taskly',
+            presenters: [
+              { name: 'Mori Finlayson-Johnecheck', linkedin: 'https://www.linkedin.com/in/mori-fj/' },
+              { name: 'Erik Liu', linkedin: 'https://www.linkedin.com/in/ericlu3010/' },
+              { name: 'Anish Makam', linkedin: 'https://www.linkedin.com/in/anish-makam-924aa7247/' },
+            ],
+          },
+        ],
+      },
+      {
         date: 'February 18th',
         title: 'Dating App Redesign',
         pitches: [
