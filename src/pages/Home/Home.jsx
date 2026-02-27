@@ -139,7 +139,7 @@ export default function Home() {
       <div className="home__header">
         <TypewriterHeading text="Your role in tech starts here." />
         <p className="home__tagline">
-          An award-winning student organization building the next generation of tech unicorns at UMass Amherst.
+          A student organization dreaming up the next generation of tech unicorns and studying products at UMass Amherst.
         </p>
       </div>
 
