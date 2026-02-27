@@ -8,7 +8,7 @@ export default {
       date: 'February 18',
     },
     {
-      title: 'Y Combinator Pitch Day',
+      title: 'YCombinator Inspired Pitch Day',
       date: 'February 25',
     },
     {
