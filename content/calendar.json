@@ -1,15 +1,17 @@
 {
-  "semester": "spring",
+  "semester": "fall",
   "year": 2026,
   "meetingInfo": "every wednesday, 7-8 pm",
   "events": [
     {
       "title": "Debug your dating life",
-      "date": "February 18"
+      "date": "February 18",
+      "note": ""
     },
     {
       "title": "YCombinator Inspired Pitch Day",
-      "date": "February 25"
+      "date": "February 25",
+      "note": ""
     },
     {
       "title": "Notion Rip Apart",
@@ -18,23 +20,28 @@
     },
     {
       "title": "Surprise Meeting",
-      "date": "April 1"
+      "date": "April 1",
+      "note": ""
     },
     {
       "title": "Shark Tank",
-      "date": "April 15"
+      "date": "April 15",
+      "note": ""
     },
     {
       "title": "AI Robot takeover?",
-      "date": "April 22"
+      "date": "April 22",
+      "note": ""
     },
     {
       "title": "Careers in AI",
-      "date": "April 29"
+      "date": "April 29",
+      "note": ""
     },
     {
       "title": "Product Party",
-      "date": "May 6th"
+      "date": "May 6th",
+      "note": ""
     }
   ]
 }
