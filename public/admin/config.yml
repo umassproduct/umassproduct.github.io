@@ -15,7 +15,7 @@ backend:
   # same Worker that serves the site (see src/worker.js), so no separate
   # OAuth proxy/service is needed. Replace with your production URL if it
   # differs from the *.workers.dev default (e.g. a custom domain).
-  base_url: https://umassproduct-website.workers.dev
+  base_url: https://umassproduct.com
 
 # Where uploaded images go, and the URL path they're served at. Matches the
 # existing /public/images convention used by the slideshow/eboard/etc.
