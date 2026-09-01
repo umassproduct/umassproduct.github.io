@@ -79,7 +79,7 @@ export default function WhoWeAre() {
           <RedBubble className="who-we-are__video-bubble">
             <video
               className="who-we-are__video"
-              src="/images/pictures_of_us/welcome_vid_portrait.MOV"
+              src="/images/pictures_of_us/welcome_vid_portrait.mp4"
               autoPlay
               loop
               playsInline
