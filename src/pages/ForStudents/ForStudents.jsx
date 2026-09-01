@@ -4,23 +4,23 @@ import NewsletterInput from '../../components/NewsletterInput/NewsletterInput'
 import SocialLinks from '../../components/SocialLinks/SocialLinks'
 import Calendar from '../../components/Calendar/Calendar'
 import ScrollFadeIn from '../../components/ScrollFadeIn/ScrollFadeIn'
-import calendarData from '../../data/calendar'
+import calendarData from '../../../content/calendar.json'
 import './ForStudents.css'
 
 function TypewriterHeading({ text }) {
-  const [charCount, setCharCount] = useState(0)
-  const [started, setStarted] = useState(false)
+  const [charCount, setCharCount] = useState(() => {
+    if (typeof window === 'undefined') return 0
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? text.length : 0
+  })
+  const [started, setStarted] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  })
   const ref = useRef(null)
 
   useEffect(() => {
     const el = ref.current
-    if (!el) return
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setCharCount(text.length)
-      setStarted(true)
-      return
-    }
+    if (!el || started || typeof window === 'undefined') return
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -33,7 +33,7 @@ function TypewriterHeading({ text }) {
     )
     observer.observe(el)
     return () => observer.unobserve(el)
-  }, [text])
+  }, [started])
 
   useEffect(() => {
     if (!started) return

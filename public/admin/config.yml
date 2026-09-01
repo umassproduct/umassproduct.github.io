@@ -1,0 +1,119 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+#
+# Sveltia CMS config for the UMass Product site.
+# Docs: https://sveltiacms.app/en/docs/config
+#
+# This CMS edits the JSON files in /content directly (the same files the
+# React site imports at build time), so a save here becomes a normal git
+# commit — no database, no separate content API.
+
+backend:
+  name: github
+  repo: umassproduct/website
+  branch: main
+  # This is the site's own domain — the OAuth handshake is handled by the
+  # same Worker that serves the site (see src/worker.js), so no separate
+  # OAuth proxy/service is needed. Replace with your production URL if it
+  # differs from the *.workers.dev default (e.g. a custom domain).
+  base_url: https://umassproduct-website.workers.dev
+
+# Where uploaded images go, and the URL path they're served at. Matches the
+# existing /public/images convention used by the slideshow/eboard/etc.
+media_folder: /public/images
+public_folder: /images
+
+collections:
+  - name: content
+    label: Site Content
+    files:
+      - name: eboard
+        label: Executive Boards
+        file: content/eboard.json
+        description: One entry per semester. The order here is the order shown on the Who We Are page (most recent first).
+        fields:
+          - label: Semesters
+            name: eboard
+            widget: list
+            label_singular: Semester
+            summary: '{{fields.semester}}'
+            fields:
+              - { label: Semester, name: semester, widget: string, hint: 'e.g. "Spring 2026" or "Founding Team"' }
+              - label: Members
+                name: members
+                widget: list
+                label_singular: Member
+                summary: '{{fields.name}} — {{fields.role}}'
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Role, name: role, widget: string }
+                  - { label: LinkedIn URL, name: linkedin, widget: string, required: false }
+
+      - name: calendar
+        label: Meeting Calendar
+        file: content/calendar.json
+        description: Powers the calendar widget on the Home and For Students pages.
+        fields:
+          - { label: Semester, name: semester, widget: select, options: ['spring', 'fall'] }
+          - { label: Year, name: year, widget: number, value_type: int }
+          - { label: 'Meeting time (e.g. "every wednesday, 7-8 pm")', name: meetingInfo, widget: string }
+          - label: Events
+            name: events
+            widget: list
+            label_singular: Event
+            summary: '{{fields.date}} — {{fields.title}}'
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Date, name: date, widget: string, hint: 'e.g. "April 15" — free text, not a date picker' }
+              - { label: Note, name: note, widget: string, required: false, hint: 'e.g. "with swag!"' }
+
+      - name: showcase_semesters
+        label: Product Showcase
+        file: content/semesters.json
+        description: Pitch recordings shown on the Product Showcase page, grouped by semester and meeting.
+        fields:
+          - label: Semesters
+            name: showcase_semesters
+            widget: list
+            label_singular: Semester
+            summary: '{{fields.label}}'
+            fields:
+              - { label: 'ID (URL slug — avoid changing once published, it is used in shareable links)', name: id, widget: string }
+              - { label: Label, name: label, widget: string, hint: 'e.g. "Spring 2026"' }
+              - label: Meetings
+                name: meetings
+                widget: list
+                label_singular: Meeting
+                summary: '{{fields.date}} — {{fields.title}}'
+                fields:
+                  - { label: Date, name: date, widget: string, hint: 'e.g. "February 25th"' }
+                  - { label: Meeting title, name: title, widget: string }
+                  - label: Pitches
+                    name: pitches
+                    widget: list
+                    label_singular: Pitch
+                    summary: '{{fields.title}}'
+                    fields:
+                      - { label: YouTube video ID, name: youtubeId, widget: string, required: false, hint: 'The part after v= in the YouTube URL. Leave blank for "recording coming soon".' }
+                      - { label: Pitch title, name: title, widget: string }
+                      - label: Presenters
+                        name: presenters
+                        widget: list
+                        label_singular: Presenter
+                        summary: '{{fields.name}}'
+                        fields:
+                          - { label: Name, name: name, widget: string }
+                          - { label: LinkedIn URL, name: linkedin, widget: string, required: false }
+
+      - name: slideshow
+        label: Home Slideshow
+        file: content/slideshow.json
+        description: Photos in the crossfading slideshow on the homepage.
+        fields:
+          - label: Images
+            name: slideshow
+            widget: list
+            label_singular: Image
+            summary: '{{fields.alt}}'
+            fields:
+              - { label: Image, name: src, widget: image }
+              - { label: Alt text (for accessibility), name: alt, widget: string, default: 'UMass Product event' }

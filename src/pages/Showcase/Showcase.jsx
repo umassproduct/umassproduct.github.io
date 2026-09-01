@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import SectionHeadline from '../../components/SectionHeadline/SectionHeadline'
 import RedBubble from '../../components/RedBubble/RedBubble'
 import ScrollFadeIn from '../../components/ScrollFadeIn/ScrollFadeIn'
-import semesters from '../../data/semesters'
+import { showcase_semesters as semesters } from '../../../content/semesters.json'
 import './Showcase.css'
 
 function PitchRow({ meeting, mi, selectedId, openPitch }) {
@@ -29,7 +29,7 @@ function PitchRow({ meeting, mi, selectedId, openPitch }) {
       el.removeEventListener('scroll', updateScrollState)
       window.removeEventListener('resize', updateScrollState)
     }
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [])
 
   function scroll(dir) {
     const el = scrollRef.current
@@ -121,33 +121,29 @@ function PitchRow({ meeting, mi, selectedId, openPitch }) {
 
 export default function Showcase() {
   const [searchParams, setSearchParams] = useSearchParams()
-  const [selectedId, setSelectedId] = useState(semesters[0]?.id)
-  const [activePitch, setActivePitch] = useState(null)
   const [copied, setCopied] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
 
-  // On mount, open pitch from URL if present
-  useEffect(() => {
+  const selectedId = searchParams.get('sem') || semesters[0]?.id
+
+  const activePitch = (() => {
     const sem = searchParams.get('sem')
-    const mi = parseInt(searchParams.get('mi'))
-    const pi = parseInt(searchParams.get('pi'))
-    if (sem && !isNaN(mi) && !isNaN(pi)) {
-      const found = semesters.find(s => s.id === sem)
-      const pitch = found?.meetings[mi]?.pitches[pi]
-      if (pitch) {
-        setSelectedId(sem)
-        setActivePitch({ ...pitch, _sem: sem, _mi: mi, _pi: pi })
-      }
-    }
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+    const mi = parseInt(searchParams.get('mi'), 10)
+    const pi = parseInt(searchParams.get('pi'), 10)
+    if (!sem || Number.isNaN(mi) || Number.isNaN(pi)) return null
+
+    const found = semesters.find(s => s.id === sem)
+    const pitch = found?.meetings[mi]?.pitches[pi]
+    if (!pitch) return null
+
+    return { ...pitch, _sem: sem, _mi: mi, _pi: pi }
+  })()
 
   function openPitch(pitch, semId, mi, pi) {
-    setActivePitch({ ...pitch, _sem: semId, _mi: mi, _pi: pi })
     setSearchParams({ sem: semId, mi, pi })
   }
 
   function closePitch() {
-    setActivePitch(null)
     setSearchParams({})
     setCopied(false)
   }
@@ -209,7 +205,10 @@ export default function Showcase() {
                     role="option"
                     aria-selected={s.id === selectedId}
                     className={`showcase__dropdown-option${s.id === selectedId ? ' showcase__dropdown-option--active' : ''}`}
-                    onMouseDown={() => { setSelectedId(s.id); setDropdownOpen(false) }}
+                    onMouseDown={() => {
+                      setSearchParams({ sem: s.id })
+                      setDropdownOpen(false)
+                    }}
                   >
                     {s.label}
                   </li>

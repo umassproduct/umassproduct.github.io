@@ -2,10 +2,11 @@ import { useState } from 'react'
 import SectionHeadline from '../../components/SectionHeadline/SectionHeadline'
 import RedBubble from '../../components/RedBubble/RedBubble'
 import ScrollFadeIn from '../../components/ScrollFadeIn/ScrollFadeIn'
-import eboards from '../../data/eboard'
+import { eboard as eboardData } from '../../../content/eboard.json'
 import './WhoWeAre.css'
 
-const semesters = Object.keys(eboards)
+const semesters = eboardData.map(e => e.semester)
+const eboards = Object.fromEntries(eboardData.map(e => [e.semester, e.members]))
 
 export default function WhoWeAre() {
   const [selected, setSelected] = useState(semesters[0])

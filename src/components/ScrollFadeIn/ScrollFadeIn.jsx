@@ -3,17 +3,14 @@ import './ScrollFadeIn.css'
 
 export default function ScrollFadeIn({ children, className = '' }) {
   const ref = useRef(null)
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  })
 
   useEffect(() => {
     const el = ref.current
-    if (!el) return
-
-    // Respect reduced motion preference
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setVisible(true)
-      return
-    }
+    if (!el || visible) return
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -27,7 +24,7 @@ export default function ScrollFadeIn({ children, className = '' }) {
 
     observer.observe(el)
     return () => observer.unobserve(el)
-  }, [])
+  }, [visible])
 
   return (
     <div
