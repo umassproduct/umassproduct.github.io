@@ -136,7 +136,7 @@ export default function Home() {
     <div className="home">
       <div className="home__alert">
         <span className="home__alert-text">
-          🚨 MEETINGS HAVE MOVED TO ILC S311 UNTIL FURTHER NOTICE
+          🚨 FALL 2026 IS COMING SOON — FIRST MEETING SEPTEMBER 16TH, USUAL TIME, LOCATION TBA
         </span>
       </div>
 

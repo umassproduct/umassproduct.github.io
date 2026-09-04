@@ -35,7 +35,7 @@ export function generateICSFile(events, year, meetingTime = '7-8 pm') {
     'PRODID:-//UMass Product//Events Calendar//EN',
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
-    'X-WR-CALNAME:UMass Product Spring 2026',
+    'X-WR-CALNAME:UMass Product Fall 2026',
     'X-WR-TIMEZONE:America/New_York',
   ]
 
@@ -67,7 +67,7 @@ export function generateICSFile(events, year, meetingTime = '7-8 pm') {
 /**
  * Triggers download of .ics file
  */
-export function downloadICSFile(icsContent, filename = 'umass-product-spring-2026.ics') {
+export function downloadICSFile(icsContent, filename = 'umass-product-fall-2026.ics') {
   const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' })
   const link = document.createElement('a')
   link.href = URL.createObjectURL(blob)

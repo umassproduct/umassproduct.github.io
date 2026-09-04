@@ -142,11 +142,10 @@ export default function ForStudents() {
         <ScrollFadeIn>
           <div className="for-students__poster-container">
             <RedBubble className="for-students__poster-bubble">
-              <img
-                src="/images/pictures_of_us/meeting flyers/2:25:2026.png"
-                alt="Next meeting flyer - February 25, 2026"
-                className="for-students__poster"
-              />
+              <div className="for-students__poster for-students__poster--placeholder">
+                <p>Fall 2026 kicks off September 16th.</p>
+                <p>Usual time — location TBA. Flyer coming soon.</p>
+              </div>
             </RedBubble>
           </div>
         </ScrollFadeIn>

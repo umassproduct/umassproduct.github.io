@@ -4,43 +4,13 @@
   "meetingInfo": "every wednesday, 7-8 pm",
   "events": [
     {
-      "title": "Debug your dating life",
-      "date": "February 18",
-      "note": ""
+      "title": "First Meeting",
+      "date": "September 16",
+      "note": "location TBA"
     },
     {
-      "title": "YCombinator Inspired Pitch Day",
-      "date": "February 25",
-      "note": ""
-    },
-    {
-      "title": "Notion Rip Apart",
-      "date": "March 25",
-      "note": "with swag!"
-    },
-    {
-      "title": "Surprise Meeting",
-      "date": "April 1",
-      "note": ""
-    },
-    {
-      "title": "Shark Tank",
-      "date": "April 15",
-      "note": ""
-    },
-    {
-      "title": "AI Robot takeover?",
-      "date": "April 22",
-      "note": ""
-    },
-    {
-      "title": "Careers in AI",
-      "date": "April 29",
-      "note": ""
-    },
-    {
-      "title": "Product Party",
-      "date": "May 6th",
+      "title": "More meetings coming soon",
+      "date": "TBA",
       "note": ""
     }
   ]
